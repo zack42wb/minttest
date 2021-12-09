@@ -20,7 +20,8 @@ import {
 } from "@solana/wallet-adapter-react";
 
 import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider} from "@material-ui/core";
+import { pink } from "@material-ui/core/colors";
 
 const treasury = new anchor.web3.PublicKey(
   process.env.REACT_APP_TREASURY_ADDRESS!
@@ -45,12 +46,13 @@ const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
 const theme = createTheme({
     palette: {
-        type: 'dark',
+      type: "dark",
+        primary: pink,
     },
     overrides: {
         MuiButtonBase: {
             root: {
-                justifyContent: 'flex-start',
+                justifyContent: 'flex',
             },
         },
         MuiButton: {
@@ -83,22 +85,20 @@ const App = () => {
   );
 
   return (
-      <ThemeProvider theme={theme}>
-        <ConnectionProvider endpoint={endpoint}>
-          <WalletProvider wallets={wallets} autoConnect={true}>
-            <WalletDialogProvider>
-              <Home
-                candyMachineId={candyMachineId}
-                config={config}
-                connection={connection}
-                startDate={startDateSeed}
-                treasury={treasury}
-                txTimeout={txTimeout}
-              />
-            </WalletDialogProvider>
-          </WalletProvider>
-        </ConnectionProvider>
-      </ThemeProvider>
+      <ConnectionProvider endpoint={endpoint}>
+        <WalletProvider wallets={wallets} autoConnect={true}>
+          <WalletDialogProvider>
+            <Home
+              candyMachineId={candyMachineId}
+              config={config}
+              connection={connection}
+              startDate={startDateSeed}
+              treasury={treasury}
+              txTimeout={txTimeout}
+            />
+          </WalletDialogProvider>
+        </WalletProvider>
+      </ConnectionProvider>
   );
 };
 

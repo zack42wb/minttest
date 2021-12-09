@@ -19,6 +19,8 @@ import {
   shortenAddress,
 } from "./candy-machine";
 
+import "./Home.css"
+
 const ConnectButton = styled(WalletDialogButton)``;
 
 const CounterText = styled.span``; // add your styles here
@@ -167,21 +169,35 @@ const Home = (props: HomeProps) => {
 
   return (
     <main>
-      {wallet && (
-        <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
-      )}
-
-      {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
-
-      {wallet && <p>Total Available: {itemsAvailable}</p>}
-
-      {wallet && <p>Redeemed: {itemsRedeemed}</p>}
-
-      {wallet && <p>Remaining: {itemsRemaining}</p>}
+      <div>
+        <img className="Fearling" src="https://images.squarespace-cdn.com/content/v1/616ddc8f795f0522578ccefc/e3f1c7e6-0dd1-434a-9740-a7389ee1fd34/FearlingGif.gif?format=1500w" alt="Flashing Fearling"/>
+      </div>
+      <div className="table">
+        <ul className="info">
+          <li>
+            {wallet && (
+              <p>Wallet: {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
+            )}
+          </li>
+          <li>
+            {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
+          </li>
+          <li>
+            {wallet && <p>Total Available: {itemsAvailable}</p>}
+          </li>
+          <li>
+            {wallet && <p>Redeemed: {itemsRedeemed}</p>}
+          </li>
+          <li>
+            {wallet && <p>Remaining: {itemsRemaining}</p>}
+          </li>
+        </ul>
+      </div>
 
       <MintContainer>
         {!wallet ? (
           <ConnectButton>Connect Wallet</ConnectButton>
+          
         ) : (
           <MintButton
             disabled={isSoldOut || isMinting || !isActive}
