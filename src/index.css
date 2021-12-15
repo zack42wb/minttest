@@ -1,17 +1,17 @@
 body {
   margin: auto;
-  margin-top: 20rem;
-  width: 10rem;
+  
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0), rgba(16,32,65,1), rgba(16,32,65, 1)), url("https://images.squarespace-cdn.com/content/v1/616ddc8f795f0522578ccefc/1634845862280-YG10V6KZDIRARATCKB65/morebgtest1.png?format=100w%20100w,https://images.squarespace-cdn.com/content/v1/616ddc8f795f0522578ccefc/1634845862280-YG10V6KZDIRARATCKB65/morebgtest1.png?format=300w%20300w,https://images.squarespace-cdn.com/content/v1/616ddc8f795f0522578ccefc/1634845862280-YG10V6KZDIRARATCKB65/morebgtest1.png?format=500w%20500w,https://images.squarespace-cdn.com/content/v1/616ddc8f795f0522578ccefc/1634845862280-YG10V6KZDIRARATCKB65/morebgtest1.png?format=750w%20750w,https://images.squarespace-cdn.com/content/v1/616ddc8f795f0522578ccefc/1634845862280-YG10V6KZDIRARATCKB65/morebgtest1.png?format=1000w%201000w,https://images.squarespace-cdn.com/content/v1/616ddc8f795f0522578ccefc/1634845862280-YG10V6KZDIRARATCKB65/morebgtest1.png?format=original%201500w");
+  background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0), rgba(16,32,65,1), rgba(16,32,65, 1)), url("https://i.imgur.com/d2uCth9.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  
 
   
   /*background-color: #303030;

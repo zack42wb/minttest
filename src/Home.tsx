@@ -173,57 +173,52 @@ const Home = (props: HomeProps) => {
         <img className="Fearling" src="https://images.squarespace-cdn.com/content/v1/616ddc8f795f0522578ccefc/e3f1c7e6-0dd1-434a-9740-a7389ee1fd34/FearlingGif.gif?format=1500w" alt="Flashing Fearling"/>
       </div>
       <div className="table">
-        <ul className="info">
-          <li>
+            
             {wallet && (
-              <p>Wallet: {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
+              <p className="topItem">Wallet: {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
             )}
-          </li>
-          <li>
-            {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
-          </li>
-          <li>
-            {wallet && <p>Total Available: {itemsAvailable}</p>}
-          </li>
-          <li>
-            {wallet && <p>Redeemed: {itemsRedeemed}</p>}
-          </li>
-          <li>
-            {wallet && <p>Remaining: {itemsRemaining}</p>}
-          </li>
-        </ul>
-      </div>
 
-      <MintContainer>
-        {!wallet ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
-          
-        ) : (
-          <MintButton
-            disabled={isSoldOut || isMinting || !isActive}
-            onClick={onMint}
-            variant="contained"
-          >
-            {isSoldOut ? (
-              "SOLD OUT"
-            ) : isActive ? (
-              isMinting ? (
-                <CircularProgress />
+            {wallet && <p className="topItem">Balance: {(balance || 0).toLocaleString()} SOL</p>}
+        </div>
+        <div className="table">
+            {wallet && <p className="bottomItem">Total Available: {itemsAvailable}</p>}
+        
+            {wallet && <p className="bottomItem">Redeemed: {itemsRedeemed}</p>}
+        
+            {wallet && <p className="bottomItem">Remaining: {itemsRemaining}</p>}
+        </div>
+      
+      <div className="table">      
+        <MintContainer>
+          {!wallet ? (
+            <ConnectButton>Connect Wallet</ConnectButton>
+            
+          ) : (
+            <MintButton
+              disabled={isSoldOut || isMinting || !isActive}
+              onClick={onMint}
+              variant="contained"
+            >
+              {isSoldOut ? (
+                "SOLD OUT"
+              ) : isActive ? (
+                isMinting ? (
+                  <CircularProgress />
+                ) : (
+                  "MINT"
+                )
               ) : (
-                "MINT"
-              )
-            ) : (
-              <Countdown
-                date={startDate}
-                onMount={({ completed }) => completed && setIsActive(true)}
-                onComplete={() => setIsActive(true)}
-                renderer={renderCounter}
-              />
-            )}
-          </MintButton>
-        )}
-      </MintContainer>
-
+                <Countdown
+                  date={startDate}
+                  onMount={({ completed }) => completed && setIsActive(true)}
+                  onComplete={() => setIsActive(true)}
+                  renderer={renderCounter}
+                />
+              )}
+            </MintButton>
+          )}
+        </MintContainer>
+      </div>
       <Snackbar
         open={alertState.open}
         autoHideDuration={6000}
