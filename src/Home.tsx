@@ -194,7 +194,7 @@ const Home = (props: HomeProps) => {
             <ConnectButton>Connect Wallet</ConnectButton>
             
           ) : (
-            <MintButton
+            <MintButton className="mintButton"
               disabled={isSoldOut || isMinting || !isActive}
               onClick={onMint}
               variant="contained"
@@ -205,7 +205,7 @@ const Home = (props: HomeProps) => {
                 isMinting ? (
                   <CircularProgress />
                 ) : (
-                  "MINT"
+                  "MINT IT"
                 )
               ) : (
                 <Countdown

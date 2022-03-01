@@ -23,6 +23,7 @@ import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
 import { createTheme, ThemeProvider} from "@material-ui/core";
 import { pink } from "@material-ui/core/colors";
 
+
 const treasury = new anchor.web3.PublicKey(
   process.env.REACT_APP_TREASURY_ADDRESS!
 );
@@ -47,12 +48,12 @@ const txTimeout = 30000; // milliseconds (confirm this works for your project)
 const theme = createTheme({
     palette: {
       type: "dark",
-        primary: pink,
+
     },
     overrides: {
         MuiButtonBase: {
             root: {
-                justifyContent: 'flex',
+                justifyContent: 'flex-start',
             },
         },
         MuiButton: {
@@ -85,6 +86,7 @@ const App = () => {
   );
 
   return (
+    <ThemeProvider theme={theme}>
       <ConnectionProvider endpoint={endpoint}>
         <WalletProvider wallets={wallets} autoConnect={true}>
           <WalletDialogProvider>
@@ -99,6 +101,7 @@ const App = () => {
           </WalletDialogProvider>
         </WalletProvider>
       </ConnectionProvider>
+    </ThemeProvider>
   );
 };
 
